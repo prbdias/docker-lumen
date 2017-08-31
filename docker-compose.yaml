@@ -1,10 +1,10 @@
-version: '2'
+version: '3'
 services:
   ### PHP-FPM Container
   php-fpm:
     build: ./build/php-fpm
-    volumes_from:
-      - application
+    volumes:
+      - ./src:/var/www
     expose:
       - "9000"
     links:
@@ -14,10 +14,9 @@ services:
   ### NGINX Container
   nginx:
     build: ./build/nginx
-    volumes_from:
-      - application
     volumes:
       - ./logs/nginx/:/var/log/nginx
+      - ./src:/var/www
     ports:
       - "80:80"
       - "443:443"
@@ -46,15 +45,17 @@ services:
   ### Application Code Container
   application:
     build: ./build/application
-    volumes:
-      - ./src:/var/www
+
 
   ### Workspace Utilities Container
   workspace:
     build: ./build/workspace
-    volumes_from:
-      - application
+    volumes:
+      - ./src:/var/www
     links:
       - mysql
       - redis
     tty: true
+
+volumes:
+  src:
