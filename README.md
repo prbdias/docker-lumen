@@ -6,7 +6,7 @@ Before you start make sure you have [Docker Compose](https://docs.docker.com/com
 
 Clone the repo by running the following command
 
-    $ git clone --recursive https://github.com/prbdias/docker-lumen.git
+    $ git clone https://github.com/prbdias/docker-lumen.git
 
 ### Config
 Before you start your application make sure you have created the file **.env** with the correct Docker configuration values. Please take a look into the example on the file **.env.example**
