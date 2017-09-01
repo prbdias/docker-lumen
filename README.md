@@ -19,12 +19,12 @@ To start you application you just need to run the following command
     $ docker-compose up -d --build
     
 ### Test
-#####PHP-FPM
+##### PHP-FPM
 Give it 5min while composer installs all the Lumen dependencies automatically under the vendor folder.
 
 Once it has finished you should be able to see Lumen's default page on your [browser](http://127.0.0.1).
 
-#####PHP-CLI
+##### PHP-CLI
 In order to run PHP on the command line you can list all the containers by running 
 
     $ docker-compose ps
